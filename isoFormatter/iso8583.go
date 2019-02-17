@@ -232,3 +232,24 @@ func (m *Message) packDataElem() (r string) {
 	}
 	return
 }
+func LogISOMSG(data Message) {
+	k := 0
+	for ; k <= 128; k++ {
+		for _, f := range data.Fields {
+			if k == f {
+				fmt.Println(f, data.Data[f])
+			}
+
+		}
+	}
+}
+func PadLeft(str string, length int, pad string) string {
+	return times(pad, length-len(str)) + str
+}
+
+func times(str string, n int) (out string) {
+	for i := 0; i < n; i++ {
+		out += str
+	}
+	return
+}

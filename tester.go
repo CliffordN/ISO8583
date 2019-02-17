@@ -18,7 +18,7 @@ func main() {
 	} else {
 		amount = amount + "00"
 	}
-	amount = PadLeft(amount, 12, "0")
+	amount = isoFormatter.PadLeft(amount, 12, "0")
 	msg := isoFormatter.Message{}
 	currentTime := time.Now()
 
@@ -34,7 +34,7 @@ func main() {
 	msg.AddData(102, "01001030027089")
 
 	isomsg := msg.Build()
-	logISOMSG(msg)
+	isoFormatter.LogISOMSG(msg)
 	host := "192.168.12.28"
 	port := "7003"
 
@@ -94,27 +94,5 @@ func main() {
 	fmt.Println("MTI:", parsed.MTI)
 	fmt.Println("39:", field39)
 	fmt.Println("47:", field47)
-	logISOMSG(parsed)
-}
-
-func logISOMSG(res isoFormatter.Message) {
-	k := 0
-	for ; k <= 128; k++ {
-		for _, f := range res.Fields {
-			if k == f {
-				fmt.Println(f, res.Data[f])
-			}
-
-		}
-	}
-}
-func PadLeft(str string, length int, pad string) string {
-	return times(pad, length-len(str)) + str
-}
-
-func times(str string, n int) (out string) {
-	for i := 0; i < n; i++ {
-		out += str
-	}
-	return
+	isoFormatter.LogISOMSG(parsed)
 }

@@ -1,12 +1,10 @@
 package main
 
 func main() {
-	//var msg Message
-	amount := "20.00"
 
+	amount := "20.00"
 	amount = isoFormatter.PadAmount(amount, 12, "0")
 	msg := isoFormatter.Message{}
-	currentTime := time.Now()
 
 	msg.MTI = "0200"
 	msg.AddData(2, 12345678)

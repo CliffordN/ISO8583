@@ -243,7 +243,15 @@ func LogISOMSG(data Message) {
 		}
 	}
 }
-func PadLeft(str string, length int, pad string) string {
+func PadAmount(str string, length int, pad string) string {
+	if strings.Contains(str, ".") {
+		str = strings.Replace(string(str), ".", "", -2)
+	} else {
+		str = str + "00"
+	}
+	return times(pad, length-len(str)) + str
+}
+func Padleft(str string, length int, pad string) string {
 	return times(pad, length-len(str)) + str
 }
 

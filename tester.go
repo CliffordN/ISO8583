@@ -70,7 +70,6 @@ func parseISO(){
 	//get fields value
 	field37 := parsed.Data[37].String()
 	field102 := parsed.Data[102].String()
-	//field38 := parsed.Data[38].String()
 
 	fmt.Println("MTI:", parsed.MTI)
 	fmt.Println("37:", field37)

@@ -9,8 +9,8 @@ This is a go lang project that assist in processing ISO 8583 message standards.
  
  func main() {
 	// Creates a new Iso8583 message
-	msg := isoFormatter.Message{}
 	
+	msg := isoFormatter.Message{}	
 	msg.MTI = "0200"
 	msg.AddData(2, 1234567)
 	msg.AddData(3, "310000")

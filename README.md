@@ -1,5 +1,6 @@
 # ISO8583
-Go for iso8583
+Go for iso8583 Financial Message standard
+originally forked from https://github.com/bom-d-van/gojak8583
 
 This is a go lang project that assist in processing ISO 8583 message standards.
 ```

@@ -74,7 +74,7 @@ func (m *Message) parseBitMap(raw string) (r string, err error) {
 		raw = raw[16:]
 	}
 
-	for i, _ := range m.BitMap {
+	for i := range m.BitMap {
 		b, _ := strconv.Atoi(string(m.BitMap[i]))
 		if i > 0 && b == 1 {
 			m.Fields = append(m.Fields, i+1)
@@ -90,7 +90,7 @@ func toBitMap(src string) (dst string, err error) {
 	for _, code := range src {
 		n, err := strconv.ParseInt(string(code), 16, 64)
 		if err != nil {
-			return "", fmt.Errorf("strconv.ParseInt(string(%s), 16, 64): %s", code, err)
+			return "", fmt.Errorf("strconv.ParseInt(string(%v), 16, 64): %v", code, err)
 		}
 		code := strconv.FormatInt(n, 2)
 		for len(code) < 4 {
@@ -186,14 +186,14 @@ func (m *Message) Build() (r string) {
 func (m *Message) genBitMap() {
 	var bitmap [128]int
 	m.Fields = []int{}
-	for field, _ := range m.Data {
+	for field := range m.Data {
 		m.Fields = append(m.Fields, field)
 		bitmap[field-1] = 1
 		if field > 64 {
 			bitmap[0] = 1
 		}
 	}
-	sort.Sort(sort.IntSlice(m.Fields))
+	sort.Ints(sort.IntSlice(m.Fields))
 	m.BitMap = ""
 	for i, bit := range bitmap {
 		if i > 64 && bitmap[0] != 1 {

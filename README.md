@@ -4,7 +4,7 @@ originally forked from https://github.com/bom-d-van/gojak8583
 
 This is a go lang project that assist in processing ISO 8583 message standards.
 ```
-go get github.com/CliffordN/ISO8583
+go clone github.com/CliffordN/ISO8583
 ```
  # Example
 
@@ -41,4 +41,4 @@ go get github.com/CliffordN/ISO8583
  0200f228000008008000000000000400000008123456783100000000000002000303103707133337201501021504051240409123456789
  ```
 
- Additional example you can see in tester.go
+ Additional example you can see in samples.go
